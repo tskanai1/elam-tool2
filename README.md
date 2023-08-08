@@ -25,18 +25,14 @@ You can run this tool on your local machine (client) or on an APIC. If Python 3.
 Requirement: Python version should be 3.10 or later.
 Just execute the following command to install the tool.
 ```
-$ sudo pip3 install git+https://gitlab-sjc.cisco.com/japan-tac-aci/elam-tool2.git
-Collecting git+https://gitlab-sjc.cisco.com/japan-tac-aci/elam-tool2.git
-  Cloning https://gitlab-sjc.cisco.com/japan-tac-aci/elam-tool2.git to /private/tmp/pip-req-build-zsx3oy6j
-  Running command git clone -q https://gitlab-sjc.cisco.com/japan-tac-aci/elam-tool2.git /private/tmp/pip-req-build-zsx3oy6j
+$ pip install git+https://github.com/tskanai1/elam-tool2.git
+Collecting git+https://github.com/tskanai1/elam-tool2.git
 ----- snip -----
 Building wheels for collected packages: elam-tool2
-  Building wheel for elam-tool2 (setup.py) ... done
-  Created wheel for elam-tool2: filename=elam_tool2-1.0.0-py3-none-any.whl size=10120 sha256=2695f4cb66f328df0a7a5e29b8cc445bae887b7684e547e930fe26d2f12c2f65
-  Stored in directory: /private/tmp/pip-ephem-wheel-cache-hr6aj3_p/wheels/d9/2b/2d/badbf476c127a435a51b655a728ad7ad1d122a83e1efd120e6
+----- snip -----
 Successfully built elam-tool2
 Installing collected packages: elam-tool2
-Successfully installed elam-tool2-1.0.0
+Successfully installed elam-tool2-1.2.0
 ```
 Then, you can use two elam commands, elam_multi_dev and elam_report_generator.
 ```
