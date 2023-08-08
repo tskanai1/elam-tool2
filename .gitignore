@@ -1,0 +1,5 @@
+elam_report/
+trigger_json/
+src/__pycache__/
+*.json
+elam_tool2/__pycache__/
