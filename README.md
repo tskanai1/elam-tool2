@@ -41,7 +41,7 @@ elam_multi_dev         elam_report_generator
 ```
 
 ### How to install on your APIC <a name="installapic"></a>
-Download [the elam-tool2's package](/archive/refs/heads/main.zip) and put the zip file onto home directory on your APIC.  
+Download [the elam-tool2's package](https://github.com/tskanai1/elam-tool2/archive/refs/heads/main.zip) and put the zip file onto home directory on your APIC.  
 Unzip the file and execute ```setup_on_apic.sh``` script to install the tool.
 ```
 fab3-apic1# bash
