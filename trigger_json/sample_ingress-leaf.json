@@ -1,0 +1,38 @@
+{
+    "node-name": "fab3-leaf3",
+    "role": "leaf",
+    "in-select": "6",
+    "out-select": "1",
+    "direction": "ingress",
+    "trigger": {
+        "arp": "no",
+        "ip_version": "4",
+        "children": [
+            {
+                "arp": {
+                    "source-ip-addr": "",
+                    "source-mac-addr": "",
+                    "target-ip-addr": "",
+                    "target-mac-addr": ""
+                },
+                "ipv4": {
+                    "dst_ip": "192.168.22.1",
+                    "next-protocol": "",
+                    "src_ip": ""
+                },
+                "ipv6": {
+                    "dst_ip": "",
+                    "src_ip": ""
+                },
+                "l2": {
+                    "dst_mac": "",
+                    "src_mac": "0035.1aef.cbb7"
+                },
+                "l4": {
+                    "dst-port": "22",
+                    "src-port": ""
+                }
+            }
+        ]
+    }
+}

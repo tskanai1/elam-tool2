@@ -1,0 +1,94 @@
+{
+  "node-name": "fab4-leaf1",
+  "role": "leaf",
+  "in-select": "6",
+  "out-select": "1",
+  "direction": "ingress",
+  "trigger": {
+    "arp": "no",
+    "ip_version": "4",
+    "children": [
+      {
+        "arp": {
+          "source-ip-addr": "",
+          "source-mac-addr": "",
+          "target-ip-addr": "",
+          "target-mac-addr": "",
+          "ether-type": "",
+          "hw-addr-len": "",
+          "payload-len": "",
+          "protocol-type": "",
+          "hardware-type": "",
+          "opcode": "",
+          "prot-addr-le": ""
+        },
+        "ipv4": {
+          "dst_ip": "",
+          "next-protocol": "",
+          "src_ip": "",
+          "checksum": "",
+          "fragment-off": "",
+          "more-frags": "",
+          "packet-len": "",
+          "version": "",
+          "dscp": "",
+          "ecn": "",
+          "header-len": "",
+          "pyld-len": "",
+          "ttl": ""
+        },
+        "ipv6": {
+          "dst_ip": "",
+          "src_ip": "",
+          "hop-limit": "",
+          "next-header": "",
+          "packet-len": "",
+          "version": ""
+        },
+        "l2": {
+          "dst_mac": "",
+          "src_mac": "",
+          "vlan": "",
+          "cos": "",
+          "vntag_dvif": "",
+          "vntag_pointer": "",
+          "vntag_vld": "",
+          "vntag_dir": "",
+          "vntag_looped": "",
+          "vntag_svif": "",
+          "cntag_vld": "",
+          "snap_vld": "",
+          "cfi": "",
+          "qtag_vld": ""
+        },
+        "l4": {
+          "dst-port": "",
+          "src-port": "",
+          "checksum": "",
+          "flags": "",
+          "l4-type": "",
+          "lsb-lb-metric": "",
+          "lsb-lb-tag": "",
+          "lsb-m": "",
+          "nd-code": "",
+          "nd-flags": "",
+          "nd-ip": "",
+          "nd-type": "",
+          "nonce-dl": "",
+          "nonce-dp": "",
+          "nonce-dre": "",
+          "nonce-e": "",
+          "nonce-lb": "",
+          "nonce-sp": "",
+          "packet-len": "",
+          "sclass": "",
+          "tn-lsb": "",
+          "tn-lsb-info": "",
+          "tn-nonce": "",
+          "tn-nonce-info": "",
+          "vnid": ""
+        }
+      }
+    ]
+  }
+}

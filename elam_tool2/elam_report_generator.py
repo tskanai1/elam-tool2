@@ -547,7 +547,7 @@ def main():
                 print("-R, --run-at         specify where you are running this ELAM command tool. on 'apic' or 'client'")
                 print("    --apic           if you run the tool on client, specify apic's IP address at which(its Fabric) you want to take ELAM")
                 print("-J, --json-file      if you are familiar with ELAM parameters, you can specify a json file by which advanced options of ELAM can be used")
-                print("                     you can find some example at https://gitlab-sjc.cisco.com/japan-tac-aci/elam-tool2/tree/master/trigger_json")
+                print("                     you can find some example at https://github.com/tskanai1/elam-tool2/tree/main/trigger_json")
                 print("-T, --timeout        specify the time to wait packet to be captured before the tool stops running")
                 print("-D, --dump-json      specify filename if you want to create a json file to store entered ELAM parameters")
                 print("-N, --no-assist      disable displaying acidiag fnvread, node name check and auto detection of switch role.")

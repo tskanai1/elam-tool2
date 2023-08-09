@@ -15,9 +15,9 @@
 ## Introduction <a name="introduction"></a>
 We, ACI TAC engineers, often collect ELAM reports from our lab devices or from our customer's devices to troubleshoot packet forwarding issues. Although ELAM is strong tool and very useful for such troubleshooting scenarios, we have some difficulties below.
 - It is complicated and requires some knowledges/experiences regarding ELAM parameters to set/trigger ELAM and collect ELAM reports, which may be difficult for junior ACI engineers
-- Although we have a great [ELAM Assistant](https://dcappcenter.cisco.com/elam-assistant.html) App which allows us to easily execute ELAM and decode the result, some customers (typically in Japan) refuse to install an App on their production ACI fabric. Those customers tend to refuse Webex access to their devices for troubleshooting. We need to tell those customers ELAM commands including parameters to filter packet flows we are focusing on.
+- Although we have a great [ELAM Assistant](https://dcappcenter.cisco.com/elam-assistant.html) App which allows us to easily execute ELAM and decode the result, some customers refuse to install an App on their production ACI fabric. Those customers tend to refuse Webex access to their devices for troubleshooting. We need to tell those customers ELAM commands including parameters to filter packet flows we are focusing on.
 
-With that said, we indeed have some demands for CLI tool which enables ACI users to easily set/trigger ELAM and collect ELAM reports without knowledge about ELAM parameters such as ASIC family names, in-select/out-select, etc. You will be able to use this tool by following [Installation](#installation) and How to use sections below.
+With that said, we indeed have some demands for CLI tool which enables ACI users to easily set/trigger ELAM and collect ELAM reports without knowledge about ELAM parameters such as ASIC family names, in-select/out-select, etc. You will be able to use this tool by following [Installation](#installation) and [How to use section](#howtousesingle) below.
 
 ## Installation <a name="installation"></a>
 You can run this tool on your local machine (client) or on an APIC. If Python 3.10 is installed on your local machine, it is recommended to run this tool on your local machine since installation is much easier and you can run the tool against any ACI fabric as long as  your local machine has connectivity with an APIC in the fabric.
@@ -41,55 +41,56 @@ elam_multi_dev         elam_report_generator
 ```
 
 ### How to install on your APIC <a name="installapic"></a>
-Download [the elam-tool2's package](https://gitlab-sjc.cisco.com/japan-tac-aci/elam-tool2/-/archive/master/elam-tool2-master.zip) and put the zip file onto home directory on your APIC.  
+Download [the elam-tool2's package](/archive/refs/heads/main.zip) and put the zip file onto home directory on your APIC.  
 Unzip the file and execute ```setup_on_apic.sh``` script to install the tool.
 ```
 fab3-apic1# bash
-admin@fab3-apic1:~> unzip elam-tool2-master.zip
-Archive:  elam-tool2-master.zip
-13faf2603970ac5e8f13f35519b072428a809c07
-   creating: elam-tool2-master/
- extracting: elam-tool2-master/.gitignore
-  inflating: elam-tool2-master/README.md
-   creating: elam-tool2-master/elam_tool2/
- extracting: elam-tool2-master/elam_tool2/__init__.py
-  inflating: elam-tool2-master/elam_tool2/elam_multi_dev.py
-  inflating: elam-tool2-master/elam_tool2/elam_report_generator.py
+admin@fab3-apic1:~> unzip elam-tool2-main.zip
+Archive:  elam-tool2-main.zip
+70146dc348b0ec5870580ecc7641fc63477b0d25
+   creating: elam-tool2-main/
+  inflating: elam-tool2-main/.gitignore
+  inflating: elam-tool2-main/README.md
+   creating: elam-tool2-main/elam_tool2/
+ extracting: elam-tool2-main/elam_tool2/__init__.py
+  inflating: elam-tool2-main/elam_tool2/elam_multi_dev.py
+  inflating: elam-tool2-main/elam_tool2/elam_report_generator.py
 ----- snip -----
-admin@fab3-apic1:~> cd elam-tool2-master
-admin@fab3-apic1:elam-tool2-master> ./setup_on_apic.sh
+admin@fab3-apic1:~> cd elam-tool2-main
+admin@fab3-apic1:elam-tool2-main> ./setup_on_apic.sh
 ### Setup elam-tool2 on APIC ...
 ### Installing pexpect-4.8.0 ...
 ----- snip -----
 ### Installed packages are:
 pexpect  pexpect-4.8.0-py3.7.egg-info  ptyprocess  ptyprocess-0.7.0-py3.7.egg-info
 ### Setup is completed!
+----- snip -----
 ```
 Then you can use the tool as follows.
 ```
-admin@fab3-apic1:elam-tool2-master> python3 elam_tool2/elam_report_generator.py
-On which platform are you running the script, client or apic? [client/apic]:
+admin@fab3-apic1:elam-tool2-main> python3 elam_tool2/elam_report_generator.py
+On which platform are you running the script, client or apic? [client/apic]: apic
 ----- snip -----
 ```
 How to use the tool on APIC is the same as on client except that you need to type ```python3``` before the command.
 
 ### How to uninstall on your APIC <a name="uninstallapic"></a>
-When you want to uninstall the python script and the installed packages from the APIC, just execute the ```uninstall_on_apic.sh``` under the elam-tool2-master directory.
+When you want to uninstall the python script and the installed packages from the APIC, just execute the `uninstall_on_apic.sh` under the elam-tool2-master directory.
 ```
 fab3-apic1# bash
-admin@fab3-apic1:~> cd elam-tool2-master
-admin@fab3-apic1:elam-tool2-master> ./uninstall_on_apic.sh
+admin@fab3-apic1:~> cd elam-tool2-main
+admin@fab3-apic1:elam-tool2-main> ./uninstall_on_apic.sh
 ### Uninstall elam-tool2 on APIC ...
 ### Uninstalling pexpect-4.8.0 ...
-/usr/lib64/python3.7/distutils/dist.py:274: UserWarning: Unknown distribution option: 'install_requires'
+/usr/lib/python3.8/distutils/dist.py:274: UserWarning: Unknown distribution option: 'install_requires'
   warnings.warn(msg)
 running install
 running build
 running build_py
 running install_lib
 running install_egg_info
-Removing /home/admin/.local/lib/python3.7/site-packages/pexpect-4.8.0-py3.7.egg-info
-Writing /home/admin/.local/lib/python3.7/site-packages/pexpect-4.8.0-py3.7.egg-info
+Removing /home/admin/.local/lib/python3.8/site-packages/pexpect-4.8.0.egg-info
+Writing /home/admin/.local/lib/python3.8/site-packages/pexpect-4.8.0.egg-info
 writing list of installed files to 'pexpect_list.txt'
 ### Uninstalling ptyprocess-0.7.0 ...
 running install
@@ -97,13 +98,13 @@ running build
 running build_py
 running install_lib
 running install_egg_info
-Removing /home/admin/.local/lib/python3.7/site-packages/ptyprocess-0.7.0-py3.7.egg-info
-Writing /home/admin/.local/lib/python3.7/site-packages/ptyprocess-0.7.0-py3.7.egg-info
+Removing /home/admin/.local/lib/python3.8/site-packages/ptyprocess-0.7.0.egg-info
+Writing /home/admin/.local/lib/python3.8/site-packages/ptyprocess-0.7.0.egg-info
 writing list of installed files to 'ptyprocess_list.txt'
 ### Remove elam-tool2 directory
 ### No packages should be here:
+pexpect-4.8.0-py3.7.egg-info  ptyprocess-0.7.0-py3.7.egg-info
 ### Uninstall elam-tool2 is completed!
-admin@fab3-apic1:elam-tool2-master>
 ```
 
 ## How to use for single switch (leaf/spine) <a name="howtousesingle"></a>
@@ -280,7 +281,7 @@ Usage:
 -R, --run-at         specify where you are running this ELAM command tool. on 'apic' or 'client'
     --apic           if you run the tool on client, specify apic's IP address at which(its Fabric) you want to take ELAM
 -J, --json-file      if you are familiar with ELAM parameters, you can specify a json file by which advanced options of ELAM can be used
-                     you can find some example at https://gitlab-sjc.cisco.com/japan-tac-aci/elam-tool2/tree/master/trigger_json
+                     you can find some example at https://github.com/tskanai1/elam-tool2/tree/main/trigger_json
 -T, --timeout        specify the time to wait packet to be captured before the tool stops running
 -D, --dump-json      specify filename if you want to create a json file to store entered ELAM parameters
 -N, --no-assist      disable displaying acidiag fnvread, node name check and auto detection of switch role.
@@ -322,7 +323,7 @@ The script completed to generate ELAM report !!!!!!!!
 Just run the script above for each leaf/spine in the packet path.
 ### Using json file <a name="multijson"></a>
 If you prepare for a json file which contains a list of objects for elam parameters on each node, you can run the elam tool on multiple switches in parallel.  
-Following is an example json file trigger_json/sample_for-elam_multi_dev.json under this gitlab project which triggers a packet from 192.168.21.1 to 192.168.22.1 passing through fab3-leaf3 as an ingress leaf and fab3-leaf8 as an egress leaf. You can customize each parameter to match your environment.
+Following is an [example json file](trigger_json/sample_for-elam_multi_dev.json) which triggers a packet from 192.168.21.1 to 192.168.22.1 passing through fab3-leaf3 as an ingress leaf and fab3-leaf8 as an egress leaf. You can customize each parameter to match your environment.
 ```
 $ cat trigger_json/sample_for-elam_multi_dev.json
 [

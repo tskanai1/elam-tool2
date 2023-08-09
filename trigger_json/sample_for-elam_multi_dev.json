@@ -1,0 +1,78 @@
+[
+    {
+	"node-name": "fab3-leaf3",
+	"role": "leaf",
+	"direction": "ingress",
+	"in-select": "6",
+	"out-select": "1",
+	"trigger": {
+	    "arp": "no",
+	    "ip_version": "4",
+	    "children": [
+		{
+		    "arp": {
+			"source-ip-addr": "",
+			"source-mac-addr": "",
+			"target-ip-addr": "",
+			"target-mac-addr": ""
+		    },
+		    "ipv4": {
+			"dst_ip": "192.168.22.1",
+			"next-protocol": "1",
+			"src_ip": "192.168.21.1"
+		    },
+		    "ipv6": {
+			"dst_ip": "",
+			"src_ip": ""
+		    },
+		    "l2": {
+			"dst_mac": "",
+			"src_mac": ""
+		    },
+		    "l4": {
+			"dst-port": "",
+			"src-port": ""
+		    }
+		}
+	    ]
+	}
+    },
+    {
+	"node-name": "fab3-leaf8",
+	"role": "leaf",
+	"direction": "egress",
+	"in-select": "7",
+	"out-select": "1",
+	"trigger": {
+	    "arp": "no",
+	    "ip_version": "4",
+	    "children": [
+		{
+		    "arp": {
+			"source-ip-addr": "",
+			"source-mac-addr": "",
+			"target-ip-addr": "",
+			"target-mac-addr": ""
+		    },
+		    "ipv4": {
+			"dst_ip": "192.168.22.1",
+			"next-protocol": "1",
+			"src_ip": "192.168.21.1"
+		    },
+		    "ipv6": {
+			"dst_ip": "",
+			"src_ip": ""
+		    },
+		    "l2": {
+			"dst_mac": "",
+			"src_mac": ""
+		    },
+		    "l4": {
+			"dst-port": "",
+			"src-port": ""
+		    }
+		}
+	    ]
+	}
+    }
+]
