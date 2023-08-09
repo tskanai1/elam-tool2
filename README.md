@@ -17,7 +17,7 @@ We, ACI TAC engineers, often collect ELAM reports from our lab devices or from o
 - It is complicated and requires some knowledges/experiences regarding ELAM parameters to set/trigger ELAM and collect ELAM reports, which may be difficult for junior ACI engineers
 - Although we have a great [ELAM Assistant](https://dcappcenter.cisco.com/elam-assistant.html) App which allows us to easily execute ELAM and decode the result, some customers refuse to install an App on their production ACI fabric. Those customers tend to refuse Webex access to their devices for troubleshooting. We need to tell those customers ELAM commands including parameters to filter packet flows we are focusing on.
 
-With that said, we indeed have some demands for CLI tool which enables ACI users to easily set/trigger ELAM and collect ELAM reports without knowledge about ELAM parameters such as ASIC family names, in-select/out-select, etc. You will be able to use this tool by following [Installation](#installation) and [How to use section](#howtousesingle) below.
+With that said, we indeed have some demands for CLI tool which enables ACI users to easily set/trigger ELAM and collect ELAM reports without knowledge about ELAM parameters such as ASIC family names, in-select/out-select, etc. You will be able to use this tool by following [Installation](#installation) and How to use sections below.
 
 ## Installation <a name="installation"></a>
 You can run this tool on your local machine (client) or on an APIC. If Python 3.10 is installed on your local machine, it is recommended to run this tool on your local machine since installation is much easier and you can run the tool against any ACI fabric as long as  your local machine has connectivity with an APIC in the fabric.
