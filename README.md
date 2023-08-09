@@ -22,7 +22,9 @@ With that said, we indeed have some demands for CLI tool which enables ACI users
 ## Installation <a name="installation"></a>
 You can run this tool on your local machine (client) or on an APIC. If Python 3.10 is installed on your local machine, it is recommended to run this tool on your local machine since installation is much easier and you can run the tool against any ACI fabric as long as  your local machine has connectivity with an APIC in the fabric.
 ### How to install on your local machine <a name="installlocal"></a>
-Requirement: Python version should be 3.10 or later.
+Requirement:
+  - Linux and macOS are supported. For Windows, use WSL since the tool uses pexpect.spawn which is not available on native Windows ([Reference](https://pexpect.readthedocs.io/en/stable/overview.html#pexpect-on-windows)).
+  - Python version should be 3.10 or later.
 Just execute the following command to install the tool.
 ```
 $ pip install git+https://github.com/tskanai1/elam-tool2.git
