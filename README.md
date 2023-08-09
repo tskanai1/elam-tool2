@@ -1,4 +1,4 @@
-# ACI ELAM CLI Tool to easily use ELAM
+# ELAM CLI Tool for Cisco ACI
 # Table of Contents
 1. [Introduction](#introduction)
 2. [Installation](#installation)
@@ -13,7 +13,7 @@
    2. [Using json file](#multijson)
 
 ## Introduction <a name="introduction"></a>
-We, ACI TAC engineers, often collect ELAM reports from our lab devices or from our customer's devices to troubleshoot packet forwarding issues. Although ELAM is strong tool and very useful for such troubleshooting scenarios, we have some difficulties below.
+Cisco ACI engineers often collect ELAM reports from our lab devices or from our customer's devices to troubleshoot packet forwarding issues. Although ELAM is strong tool and very useful for such troubleshooting scenarios, we have some difficulties below.
 - It is complicated and requires some knowledges/experiences regarding ELAM parameters to set/trigger ELAM and collect ELAM reports, which may be difficult for junior ACI engineers
 - Although we have a great [ELAM Assistant](https://dcappcenter.cisco.com/elam-assistant.html) App which allows us to easily execute ELAM and decode the result, some customers refuse to install an App on their production ACI fabric. Those customers tend to refuse Webex access to their devices for troubleshooting. We need to tell those customers ELAM commands including parameters to filter packet flows we are focusing on.
 
