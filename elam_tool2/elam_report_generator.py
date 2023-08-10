@@ -49,7 +49,7 @@ def get_elam_report(run_dev = {}, user_pass = {}, elam_trigger = {}, elam_timeou
 
     ### Starting login each device. 
     if run_dev["run_at"] == 'client':
-        child = pexpect.spawn('ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PubkeyAuthentication=no %s@%s' % (username, run_dev["apic_ip"]), timeout = 60)
+        child = pexpect.spawn('ssh -oHostKeyAlgorithms=+ssh-rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PubkeyAuthentication=no %s@%s' % (username, run_dev["apic_ip"]), timeout = 60)
         print('apic login')
         child.expect('password:')
         child.sendline(password)
@@ -220,7 +220,7 @@ def elam_generate(run_dev, lc_number, asic_number, elam_trigger, user_pass, elam
         }
 
     if run_dev["run_at"] == 'client':
-        child = pexpect.spawn('ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PubkeyAuthentication=no %s@%s' % (username, run_dev["apic_ip"]), timeout = 60)
+        child = pexpect.spawn('ssh -oHostKeyAlgorithms=+ssh-rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PubkeyAuthentication=no %s@%s' % (username, run_dev["apic_ip"]), timeout = 60)
         child.expect('password:')
         child.sendline(password)
         child.expect('#')
@@ -234,7 +234,7 @@ def elam_generate(run_dev, lc_number, asic_number, elam_trigger, user_pass, elam
     child.expect('#')
     infra_apic_ip = re.split(r'[\n\r]+', child.before.decode('utf-8'))[1]
     #print (infra_apic_ip)
-    child.sendline('ssh -b %s -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no %s@%s' % (infra_apic_ip, username, node_name))
+    child.sendline('ssh -b %s -oHostKeyAlgorithms=+ssh-rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no %s@%s' % (infra_apic_ip, username, node_name))
     child.expect('Password:')
     child.sendline(password)
     child.expect('#')
@@ -603,7 +603,7 @@ def main():
 
                     # Login APIC
                     if run_dev["run_at"] == 'client':
-                        child = pexpect.spawn('ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PubkeyAuthentication=no %s@%s' % (username, run_dev["apic_ip"]), timeout = 60)
+                        child = pexpect.spawn('ssh -oHostKeyAlgorithms=+ssh-rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PubkeyAuthentication=no %s@%s' % (username, run_dev["apic_ip"]), timeout = 60)
                         child.expect('password:')
                         child.sendline(password)
                         child.expect('#')
