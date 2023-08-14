@@ -5,7 +5,7 @@ with open('requirements.txt') as requirements_file:
 
 setuptools.setup(
     name="elam-tool2",
-    version="1.2.0",
+    version="1.2.1",
     description="elam tool",
     author="Japan ACI Team",
     author_email="tskanai@cisco.com",

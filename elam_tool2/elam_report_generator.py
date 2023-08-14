@@ -2,9 +2,6 @@
 # -*- coding: utf-8 -*-
 
 '''
-Created on Jun 27, 2017
-Last updated on May 10, 2022
-
 @author: tskanai, tokyu, keiish, koiwata, takasano, yyanomor
 '''
 from operator import is_
