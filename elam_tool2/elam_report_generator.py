@@ -552,7 +552,6 @@ def main():
 
     #run_dev = {"run_at": 'client', "apic_ip": 'p3-apic1'}
     #username = 'admin'
-    #password = 'ins3965!'
     #'''    
     if not run_at:
         run_at = input('On which platform are you running the script, client or apic? [client/apic]: ')
